@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>Menu</title>
+  </head>
+  <body>
+    <script>
+      var gui = require('nw.gui');
+      var osc = require('node-osc');
+      var menu = new gui.Menu();
+
+      var client = new osc.Client('127.0.0.1', 12346);
+
+      var oscServer = new osc.Server(12346, '0.0.0.0');
+      oscServer.on("/drop", function (msg, rinfo) {
+            var element = document.createElement('div');
+            element.appendChild(document.createTextNode(msg[0] + ', ' + msg[1]));
+            document.body.appendChild(element);
+      });
+
+      menu.append(new gui.MenuItem({
+        label: 'Click Me',
+        click: function() {
+          var element = document.createElement('div');
+          element.appendChild(document.createTextNode('Clicked OK'));
+          document.body.appendChild(element);
+          client.send('/drop', 200);
+        }
+        }));
+
+      document.body.addEventListener('contextmenu', function(ev) {
+        ev.preventDefault();
+        menu.popup(ev.x, ev.y);
+        return false;
+      }, false);
+      </script>
+    </body>
+  </html>
