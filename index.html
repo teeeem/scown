@@ -1,8 +1,16 @@
 <html>
   <head>
-    <title>Menu</title>
+    <title>scown-nw-osc</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
   </head>
   <body>
+    <ul class="navbar">
+      <li id='a'><a>Option A</a>
+      <li id='b'><a>Option B</a>
+      <li id='c'><a>Option C</a>
+      <li id='d'><a>Option D</a>
+    </ul>
     <script>
       var gui = require('nw.gui');
       var osc = require('node-osc');
@@ -32,6 +40,31 @@
         menu.popup(ev.x, ev.y);
         return false;
       }, false);
-      </script>
-    </body>
-  </html>
+
+      var handleClickA = function (event) {
+        client.send('/drop', 100);
+      };
+
+      var handleClickB = function (event) {
+        client.send('/drop', 200);
+      };
+
+      var handleClickC = function (event) {
+        client.send('/drop', 300);
+      };
+
+      var handleClickD = function (event) {
+        client.send('/drop', 400);
+      };
+
+      var buttonA = document.getElementById('a');
+      var buttonB = document.getElementById('b');
+      var buttonC = document.getElementById('c');
+      var buttonD = document.getElementById('d');
+      buttonA.addEventListener('click', handleClickA);
+      buttonB.addEventListener('click', handleClickB);
+      buttonC.addEventListener('click', handleClickC);
+      buttonD.addEventListener('click', handleClickD);
+    </script>
+  </body>
+</html>
