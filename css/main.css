@@ -1,9 +1,16 @@
+@font-face {
+  font-family: 'MyPirulen';
+  src:  url('../resources/pirulen/tt/pirulen rg.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   padding-left: 11em;
-  font-family: 'Roboto Slab', serif;,
-        Times, serif;
-  color: #dbae00;
-  background-color: rgb(105,105,105) }
+  font-family: 'MyPirulen';
+  color: #00aedb;
+  background-color: rgb(105,105,105); }
+
 ul.navbar {
   list-style-type: none;
   padding: 0;
@@ -12,20 +19,31 @@ ul.navbar {
   top: 2em;
   left: 1em;
   width: 9em }
+
 h1 {
-  font-family: 'Roboto Slab', serif }
+  font-family: MyPirulen }
+
 ul.navbar li {
   background: #282828;
   margin: 0.5em 0;
   padding: 0.3em;
-  border-right: 1em solid #dbae00 }
+  border-right: 0.6em solid #00aedb;
+  border-bottom: 0.2em solid #00aedb }
+
 ul.navbar a {
   text-decoration: none }
+
 a:link {
   color: blue }
+
 a:visited {
   color: purple }
+
 address {
   margin-top: 1em;
   padding-top: 1em;
   border-top: thin dotted }
+
+#sliders span {
+    height:120px; float:left; margin:15px
+  }
