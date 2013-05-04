@@ -10,17 +10,23 @@ oscServer.on("/drop", function (msg, rinfo) {
       element.appendChild(document.createTextNode(msg[0] + ', ' + msg[1]));
       document.body.appendChild(element);
 });
-oscServer.on("/test", function (msg, rinfo) {
+oscServer.on("/test/0", function (msg, rinfo) {
+    console.log(msg);
+});
+oscServer.on("/test/1", function (msg, rinfo) {
     console.log(msg);
 });
 
-var SerialPort = require('serialport').SerialPort;
+var serialport = require('serialport');
+var SerialPort = serialport.SerialPort;
 var serial0 = new SerialPort("/dev/ttyUSB0", {
-  baudrate: 9600
+  baudrate: 9600,
+  parser: serialport.parsers.readline("/n")
 });
 
 var serial1 = new SerialPort("/dev/ttyUSB1", {
-  baudrate: 9600
+  baudrate: 9600,
+  parser: serialport.parsers.readline("/n")
 });
 
 serial0.on("open", function () {
@@ -87,7 +93,7 @@ $(function() {
     range: "min",
     animate: true
   });
-  $( "#sliders > span").each(function() {
+  $( "#sliders > span").each(function(index) {
     var value = parseInt( $( this ).text(), 10);
     $( this ).empty().slider({
       value: value,
@@ -95,7 +101,8 @@ $(function() {
       range: "min",
       animate: true,
       slide: function( event, ui ) {
-        client.send('/test', ui.value);
+        //console.log(index);
+        client.send('/test/'+index, ui.value);
       }
     });
   });

@@ -9,7 +9,14 @@ body {
   padding-left: 11em;
   font-family: 'MyPirulen';
   color: #00aedb;
-  background-color: rgb(105,105,105); }
+  background-color: rgb(45,45,45); 
+}
+
+input {
+  float: right;
+  clear: both;
+  padding-right: 10px;
+}
 
 ul.navbar {
   list-style-type: none;
@@ -18,32 +25,39 @@ ul.navbar {
   position: absolute;
   top: 2em;
   left: 1em;
-  width: 9em }
+  width: 9em 
+}
 
 h1 {
-  font-family: MyPirulen }
+  font-family: MyPirulen 
+}
 
 ul.navbar li {
   background: #282828;
   margin: 0.5em 0;
   padding: 0.3em;
   border-right: 0.6em solid #00aedb;
-  border-bottom: 0.2em solid #00aedb }
+  border-bottom: 0.2em solid #00aedb 
+}
 
 ul.navbar a {
-  text-decoration: none }
+  text-decoration: none 
+}
 
 a:link {
-  color: blue }
+  color: blue 
+}
 
 a:visited {
-  color: purple }
+  color: purple 
+}
 
 address {
   margin-top: 1em;
   padding-top: 1em;
-  border-top: thin dotted }
+  border-top: thin dotted 
+}
 
 #sliders span {
-    height:120px; float:left; margin:15px
-  }
+  height:120px; float:left; margin:15px
+}
